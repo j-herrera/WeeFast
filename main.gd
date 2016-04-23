@@ -1,4 +1,3 @@
-
 extends Node2D
 
 var CO2_val = 10
@@ -37,12 +36,12 @@ func _ready():
 
 func CO2_mod():
 	var inc_CO2 = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['coal'][2] +  energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2] + science['solar'][0]*science['solar'][2] + science['wind'][0]*science['wind'][2] + science['nuclear'][0]*science['nuclear'][2] + science['fossil'][0]*science['fossil'][2] + law['forest'][0]*law['forest'][2] + law['ecars'][0]*law['ecars'][2] + law['dtax'][0]*law['dtax'][2] + law['itax'][0]*law['itax'][2]
-	print(inc_CO2)
+	#print(inc_CO2)
 	return inc_CO2
 	
 func points_mod():
 	var inc_points = energy['solar'][0]*energy['solar'][3] + energy['coal'][0]*energy['coal'][3] +  energy['gas'][0]*energy['gas'][3] + energy['wind'][0]*energy['wind'][3] + energy['nuclear'][0]*energy['nuclear'][3] + science['solar'][0]*science['solar'][3] + science['wind'][0]*science['wind'][3] + science['nuclear'][0]*science['nuclear'][3] + science['fossil'][0]*science['fossil'][3] + law['forest'][0]*law['forest'][3] + law['ecars'][0]*law['ecars'][3] + law['dtax'][0]*law['dtax'][3] + law['itax'][0]*law['itax'][3]
-	print(inc_points)
+	#print(inc_points)
 	return inc_points
 	
 func _on_reduce_CO2_pressed():
@@ -55,6 +54,7 @@ func compute_action():
 		actions -= 1
 		get_node("action_value").set_text(str(actions))
 		
+
 func compute_world():
 	var CO2_mod = CO2_mod()
 	var points_mod = points_mod()
@@ -66,7 +66,8 @@ func compute_world():
 	get_node("Temp_value").set_text(str(temp_val))
 	get_node("year_value").set_text(str(year))
 	get_node("action_value").set_text(str(actions))
-	
+	print(int(0+(temp_val-20)*6))
+	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*6))
 	if temp_val > 25:
 		get_tree().change_scene("res://lose.scn")
 	elif year > 200:
