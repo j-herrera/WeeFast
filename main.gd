@@ -6,15 +6,42 @@ var temp_val = 20
 var year = 1
 var actions = 2
 var CO2_rate = 1
+var energy = {
+	"solar" : [0,5,0,-0.4],
+	"coal" : [3,5,1,0.5],
+	"gas" : [3,5,0.5,0.5],
+	"wind" : [0,5,0,-0.4],
+	"nuclear" : [0,10,0,-1]
+	}
+var science = {
+	"solar" : [],
+	"wind" : [],
+	"nuclear" : [],
+	"fossil" : []
+	}
+var law = {
+	"forest": [0],
+	"electric_cars": [],
+	"lower_tax": [],
+	"higher_tax": [] 
+}
+var temporary_dick = {}
 
+#print(ultimate_dick["solar"])
 
 #func _process(delta):
 func _ready():
 	set_process(true)	
 
+func modifiers():
+	var inc_CO2 = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['coal'][2] +  energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2]
+	var inc_points = energy['solar'][0]*energy['solar'][3] + energy['coal'][0]*energy['coal'][3] +  energy['gas'][0]*energy['gas'][3] + energy['wind'][0]*energy['wind'][3] + energy['nuclear'][0]*energy['nuclear'][3]
+	print(inc_CO2)
+	
 func _on_reduce_CO2_pressed():
 	compute_action()
-
+	#print(ultimate_dick['solar'])
+	modifiers()
 
 func compute_action():
 	if actions > 0:
@@ -81,3 +108,11 @@ func _on_close_facilities_pressed():
 	get_node("menu_popup/open_facilities/Facilities_popup").hide()
 	_on_open_menu_pressed()
 
+
+
+func _on_forestry_pressed():
+	if law['forest'][0] == 0:
+		law['forest'][0] = 1
+	print(law['forest'][0])
+	get_node("menu_popup/open_politics/Politics_popup/forestry").set_opacity(0.2)
+		
