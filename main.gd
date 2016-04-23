@@ -2,10 +2,12 @@
 extends Node2D
 
 var CO2_val = 10
+var CO2_rate = 1
 var temp_val = 20
+var points_val = 20
+var points_rate = 2
 var year = 1
 var actions = 2
-var CO2_rate = 1
 var energy = {
 	"solar" : [0,5,0,-0.4],
 	"coal" : [3,5,1,0.5],
@@ -14,16 +16,16 @@ var energy = {
 	"nuclear" : [0,10,0,-1]
 	}
 var science = {
-	"solar" : [],
-	"wind" : [],
-	"nuclear" : [],
-	"fossil" : []
+	"solar" : [0,5,0,0],
+	"wind" : [0,5,0,0],
+	"nuclear" : [0,5,0,0],
+	"fossil" : [0,5,0,0]
 	}
 var law = {
-	"forest": [0],
-	"ecars": [0],
-	"dtax": [0],
-	"itax": [0] 
+	"forest": [0,5,0,0],
+	"ecars": [0,5,0,0],
+	"dtax": [0,5,0,0],
+	"itax": [0,5,0,0] 
 }
 var temporary_dick = {}
 
@@ -33,10 +35,13 @@ var temporary_dick = {}
 func _ready():
 	set_process(true)	
 
-func modifiers():
-	var inc_CO2 = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['coal'][2] +  energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2]
-	var inc_points = energy['solar'][0]*energy['solar'][3] + energy['coal'][0]*energy['coal'][3] +  energy['gas'][0]*energy['gas'][3] + energy['wind'][0]*energy['wind'][3] + energy['nuclear'][0]*energy['nuclear'][3]
-	print(inc_CO2)
+func CO2_mod():
+	var inc_CO2 = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['coal'][2] +  energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2] + science['solar'][0]*science['solar'][2] + science['wind'][0]*science['wind'][2] + science['nuclear'][0]*science['nuclear'][2] + science['fossil'][0]*science['fossil'][2] + law['forest'][0]*law['forest'][2] + law['ecars'][0]*law['ecars'][2] + law['dtax'][0]*law['dtax'][2] + law['itax'][0]*law['itax'][2]
+	return inc_CO2
+	
+func points_mod():
+	var inc_points = energy['solar'][0]*energy['solar'][3] + energy['coal'][0]*energy['coal'][3] +  energy['gas'][0]*energy['gas'][3] + energy['wind'][0]*energy['wind'][3] + energy['nuclear'][0]*energy['nuclear'][3] + science['solar'][0]*science['solar'][3] + science['wind'][0]*science['wind'][3] + science['nuclear'][0]*science['nuclear'][3] + science['fossil'][0]*science['fossil'][3] + law['forest'][0]*law['forest'][3] + law['ecars'][0]*law['ecars'][3] + law['dtax'][0]*law['dtax'][3] + law['itax'][0]*law['itax'][3]
+	return inc_points
 	
 func _on_reduce_CO2_pressed():
 	compute_action()
@@ -50,8 +55,13 @@ func compute_action():
 		get_node("action_value").set_text(str(actions))
 		
 func compute_world():
-	CO2_val += CO2_rate
+	var CO2_mod = CO2_mod()
+	var points_mod = points_mod()
+	CO2_rate += CO2_mod
+	points_rate += points_mod
+	CO2_val += CO2_rate 
 	temp_val += CO2_val * 0.01
+	points_val += points_rate
 	year += 1
 	get_node("C02_value").set_text(str(CO2_val))
 	get_node("Temp_value").set_text(str(temp_val))
