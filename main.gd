@@ -125,60 +125,135 @@ func _on_close_facilities_pressed():
 
 
 func _on_Coal1_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['coal'][0] == 0 or energy['coal'][0] == 2):
+		energy['coal'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(1)
 
 
 func _on_Coal2_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['coal'][0] == 1 or energy['coal'][0] == 3):
+		energy['coal'][0] = 2
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(1)
 
 
 func _on_Coal3_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['coal'][0] == 2):
+		energy['coal'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(0.2)
 
 
 func _on_Gas1_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['gas'][0] == 0 or energy['gas'][0] == 2):
+		energy['gas'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(1)
 
 
 func _on_Gas2_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['gas'][1] == 0 or energy['gas'][0] == 3):
+		energy['gas'][0] = 2
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(1)
 
 
 func _on_Gas3_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['gas'][0] == 2):
+		energy['gas'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(0.2)
 
 
 func _on_Solar1_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['solar'][0] == 0 or energy['solar'][0] == 2):
+		energy['solar'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_opacity(1)
 
 
 func _on_Solar2_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['solar'][0] == 1 or energy['solar'][0] == 3):
+		energy['solar'][0] = 2
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_opacity(1)
 
 
 func _on_Solar3_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['solar'][0] == 2):
+		energy['solar'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_opacity(0.2)
 
 
 func _on_Nuclear1_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['nuclear'][0] == 0 or energy['nuclear'][0] == 2):
+		energy['nuclear'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_opacity(1)
 
 
 func _on_Nuclear2_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['nuclear'][0] == 1 or energy['nuclear'][0] == 3):
+		energy['nuclear'][0] = 2
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_opacity(1)
 
 
 func _on_Nuclear3_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['nuclear'][0] == 2):
+		energy['nuclear'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_opacity(0.2)
 
 
 func _on_Wind1_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['wind'][0] == 0 or energy['wind'][0] == 2):
+		energy['wind'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(1)
 
 
 func _on_Wind2_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['wind'][0] == 1 or energy['wind'][0] == 3):
+		energy['wind'][0] = 2
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(0.2)
+		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(1)
 
 
 func _on_Wind3_pressed():
-	pass # replace with function body
+	if (actions > 0) and (energy['wind'][0] == 2):
+		energy['wind'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(1)
+		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(0.2)
