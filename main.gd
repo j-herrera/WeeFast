@@ -37,12 +37,6 @@ func compute_world():
 		get_tree().change_scene("res://win.scn")
 	
 
-func _on_open_research_toggled( pressed ):
-	if  !get_node("open_research").is_pressed( ):
-		get_node("research_popup").popup()
-	if  get_node("open_research").is_pressed( ):
-		get_node("research_popup").hide()
-
 
 func _on_close_menu_pressed():
 	get_node("open_menu").show()
@@ -56,3 +50,34 @@ func _on_next_turn_pressed():
 	compute_world()
 	actions = 2
 	get_node("action_value").set_text(str(actions))
+
+func _on_open_research_pressed():
+	_on_close_menu_pressed()
+	get_node("menu_popup/open_research/Research_popup").popup()
+	get_node("menu_popup/open_research/Research_popup").set_exclusive(true)
+
+
+func _on_close_research_pressed():
+	get_node("menu_popup/open_research/Research_popup").hide()
+	_on_open_menu_pressed()
+
+func _on_open_politics_pressed():
+	_on_close_menu_pressed()
+	get_node("menu_popup/open_politics/Politics_popup").popup()
+	get_node("menu_popup/open_politics/Politics_popup").set_exclusive(true)
+
+
+func _on_close_politics_pressed():
+	get_node("menu_popup/open_politics/Politics_popup").hide()
+	_on_open_menu_pressed()
+
+func _on_open_facilities_pressed():
+	_on_close_menu_pressed()
+	get_node("menu_popup/open_facilities/Facilities_popup").popup()
+	get_node("menu_popup/open_facilities/Facilities_popup").set_exclusive(true)
+
+
+func _on_close_facilities_pressed():
+	get_node("menu_popup/open_facilities/Facilities_popup").hide()
+	_on_open_menu_pressed()
+
