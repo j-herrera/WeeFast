@@ -21,9 +21,9 @@ var science = {
 	}
 var law = {
 	"forest": [0],
-	"electric_cars": [],
-	"lower_tax": [],
-	"higher_tax": [] 
+	"ecars": [0],
+	"dtax": [0],
+	"itax": [0] 
 }
 var temporary_dick = {}
 
@@ -105,13 +105,22 @@ func _on_forestry_pressed():
 	get_node("menu_popup/open_politics/Politics_popup/forestry").set_opacity(0.2)
 		
 func _on_ecars_pressed():
-	pass # replace with function body
+	if law['ecars'][0] == 0:
+		law['ecars'][0] = 1
+	print(law['ecars'][0])
+	get_node("menu_popup/open_politics/Politics_popup/ecars").set_opacity(0.2)
 
 func _on_dtax_pressed():
-	pass # replace with function body
+	if law['dtax'][0] == 0:
+		law['dtax'][0] = 1
+	print(law['dtax'][0])
+	get_node("menu_popup/open_politics/Politics_popup/dtax").set_opacity(0.2)
 
 func _on_itax_pressed():
-	pass # replace with function body
+	if law['itax'][0] == 0:
+		law['itax'][0] = 1
+	print(law['itax'][0])
+	get_node("menu_popup/open_politics/Politics_popup/itax").set_opacity(0.2)
 	
 # Energy buttons
 func _on_open_facilities_pressed():
