@@ -88,27 +88,15 @@ func _on_close_research_pressed():
 	get_node("menu_popup/open_research/Research_popup").hide()
 	_on_open_menu_pressed()
 
+# Law buttons 
 func _on_open_politics_pressed():
 	_on_close_menu_pressed()
 	get_node("menu_popup/open_politics/Politics_popup").popup()
 	get_node("menu_popup/open_politics/Politics_popup").set_exclusive(true)
 
-
 func _on_close_politics_pressed():
 	get_node("menu_popup/open_politics/Politics_popup").hide()
 	_on_open_menu_pressed()
-
-func _on_open_facilities_pressed():
-	_on_close_menu_pressed()
-	get_node("menu_popup/open_facilities/Facilities_popup").popup()
-	get_node("menu_popup/open_facilities/Facilities_popup").set_exclusive(true)
-
-
-func _on_close_facilities_pressed():
-	get_node("menu_popup/open_facilities/Facilities_popup").hide()
-	_on_open_menu_pressed()
-
-
 
 func _on_forestry_pressed():
 	if law['forest'][0] == 0:
@@ -116,3 +104,81 @@ func _on_forestry_pressed():
 	print(law['forest'][0])
 	get_node("menu_popup/open_politics/Politics_popup/forestry").set_opacity(0.2)
 		
+func _on_ecars_pressed():
+	pass # replace with function body
+
+func _on_dtax_pressed():
+	pass # replace with function body
+
+func _on_itax_pressed():
+	pass # replace with function body
+	
+# Energy buttons
+func _on_open_facilities_pressed():
+	_on_close_menu_pressed()
+	get_node("menu_popup/open_facilities/Facilities_popup").popup()
+	get_node("menu_popup/open_facilities/Facilities_popup").set_exclusive(true)
+
+func _on_close_facilities_pressed():
+	get_node("menu_popup/open_facilities/Facilities_popup").hide()
+	_on_open_menu_pressed()
+
+
+func _on_Coal1_pressed():
+	pass # replace with function body
+
+
+func _on_Coal2_pressed():
+	pass # replace with function body
+
+
+func _on_Coal3_pressed():
+	pass # replace with function body
+
+
+func _on_Gas1_pressed():
+	pass # replace with function body
+
+
+func _on_Gas2_pressed():
+	pass # replace with function body
+
+
+func _on_Gas3_pressed():
+	pass # replace with function body
+
+
+func _on_Solar1_pressed():
+	pass # replace with function body
+
+
+func _on_Solar2_pressed():
+	pass # replace with function body
+
+
+func _on_Solar3_pressed():
+	pass # replace with function body
+
+
+func _on_Nuclear1_pressed():
+	pass # replace with function body
+
+
+func _on_Nuclear2_pressed():
+	pass # replace with function body
+
+
+func _on_Nuclear3_pressed():
+	pass # replace with function body
+
+
+func _on_Wind1_pressed():
+	pass # replace with function body
+
+
+func _on_Wind2_pressed():
+	pass # replace with function body
+
+
+func _on_Wind3_pressed():
+	pass # replace with function body
