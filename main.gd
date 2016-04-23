@@ -21,9 +21,9 @@ var science = {
 	}
 var law = {
 	"forest": [0],
-	"electric_cars": [],
-	"lower_tax": [],
-	"higher_tax": [] 
+	"ecars": [0],
+	"dtax": [0],
+	"itax": [0] 
 }
 var temporary_dick = {}
 
@@ -105,13 +105,22 @@ func _on_forestry_pressed():
 	get_node("menu_popup/open_politics/Politics_popup/forestry").set_opacity(0.2)
 		
 func _on_ecars_pressed():
-	pass # replace with function body
+	if law['ecars'][0] == 0:
+		law['ecars'][0] = 1
+	print(law['ecars'][0])
+	get_node("menu_popup/open_politics/Politics_popup/ecars").set_opacity(0.2)
 
 func _on_dtax_pressed():
-	pass # replace with function body
+	if law['dtax'][0] == 0:
+		law['dtax'][0] = 1
+	print(law['dtax'][0])
+	get_node("menu_popup/open_politics/Politics_popup/dtax").set_opacity(0.2)
 
 func _on_itax_pressed():
-	pass # replace with function body
+	if law['itax'][0] == 0:
+		law['itax'][0] = 1
+	print(law['itax'][0])
+	get_node("menu_popup/open_politics/Politics_popup/itax").set_opacity(0.2)
 	
 # Energy buttons
 func _on_open_facilities_pressed():
@@ -131,7 +140,7 @@ func _on_Coal1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(1)
-
+	print(energy['coal'][0])
 
 func _on_Coal2_pressed():
 	if (actions > 0) and (energy['coal'][0] == 1 or energy['coal'][0] == 3):
@@ -140,7 +149,7 @@ func _on_Coal2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(1)
-
+	print(energy['coal'][0])
 
 func _on_Coal3_pressed():
 	if (actions > 0) and (energy['coal'][0] == 2):
@@ -149,7 +158,7 @@ func _on_Coal3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(0.2)
-
+	print(energy['coal'][0])
 
 func _on_Gas1_pressed():
 	if (actions > 0) and (energy['gas'][0] == 0 or energy['gas'][0] == 2):
@@ -158,7 +167,7 @@ func _on_Gas1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(1)
-
+	print(energy['gas'][0])
 
 func _on_Gas2_pressed():
 	if (actions > 0) and (energy['gas'][1] == 0 or energy['gas'][0] == 3):
@@ -167,7 +176,7 @@ func _on_Gas2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(1)
-
+	print(energy['gas'][0])
 
 func _on_Gas3_pressed():
 	if (actions > 0) and (energy['gas'][0] == 2):
@@ -176,7 +185,7 @@ func _on_Gas3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(0.2)
-
+	print(energy['gas'][0])
 
 func _on_Solar1_pressed():
 	if (actions > 0) and (energy['solar'][0] == 0 or energy['solar'][0] == 2):
@@ -185,7 +194,7 @@ func _on_Solar1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_opacity(1)
-
+	print(energy['solar'][0])
 
 func _on_Solar2_pressed():
 	if (actions > 0) and (energy['solar'][0] == 1 or energy['solar'][0] == 3):
@@ -194,7 +203,7 @@ func _on_Solar2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_opacity(1)
-
+	print(energy['solar'][0])
 
 func _on_Solar3_pressed():
 	if (actions > 0) and (energy['solar'][0] == 2):
@@ -203,7 +212,7 @@ func _on_Solar3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_opacity(0.2)
-
+	print(energy['solar'][0])
 
 func _on_Nuclear1_pressed():
 	if (actions > 0) and (energy['nuclear'][0] == 0 or energy['nuclear'][0] == 2):
@@ -212,7 +221,7 @@ func _on_Nuclear1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_opacity(1)
-
+	print(energy['nuclear'][0])
 
 func _on_Nuclear2_pressed():
 	if (actions > 0) and (energy['nuclear'][0] == 1 or energy['nuclear'][0] == 3):
@@ -221,7 +230,7 @@ func _on_Nuclear2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_opacity(1)
-
+	print(energy['nuclear'][0])
 
 func _on_Nuclear3_pressed():
 	if (actions > 0) and (energy['nuclear'][0] == 2):
@@ -230,7 +239,7 @@ func _on_Nuclear3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_opacity(0.2)
-
+	print(energy['nuclear'][0])
 
 func _on_Wind1_pressed():
 	if (actions > 0) and (energy['wind'][0] == 0 or energy['wind'][0] == 2):
@@ -239,7 +248,7 @@ func _on_Wind1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(1)
-
+	print(energy['wind'][0])
 
 func _on_Wind2_pressed():
 	if (actions > 0) and (energy['wind'][0] == 1 or energy['wind'][0] == 3):
@@ -248,7 +257,7 @@ func _on_Wind2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(1)
-
+	print(energy['wind'][0])
 
 func _on_Wind3_pressed():
 	if (actions > 0) and (energy['wind'][0] == 2):
@@ -257,3 +266,52 @@ func _on_Wind3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(0.2)
+	print(energy['wind'][0]) 
+
+# Research Buttons
+func _on_Solartech1_pressed():
+	pass # replace with function body
+
+
+func _on_Solartech2_pressed():
+	pass # replace with function body
+
+
+func _on_Solartech3_pressed():
+	pass # replace with function body
+
+
+func _on_Windtech1_pressed():
+	pass # replace with function body
+
+
+func _on_Windtech2_pressed():
+	pass # replace with function body
+
+
+func _on_Windtech3_pressed():
+	pass # replace with function body
+
+
+func _on_Nucleartech1_pressed():
+	pass # replace with function body
+
+
+func _on_Nucleartech2_pressed():
+	pass # replace with function body
+
+
+func _on_Nucleartech3_pressed():
+	pass # replace with function body
+
+
+func _on_Fossiltech1_pressed():
+	pass # replace with function body
+
+
+func _on_Fossiltech2_pressed():
+	pass # replace with function body
+
+
+func _on_Fossiltech3_pressed():
+	pass # replace with function body
