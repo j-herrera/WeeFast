@@ -191,3 +191,51 @@ func _on_Wind2_pressed():
 
 func _on_Wind3_pressed():
 	pass # replace with function body
+
+# Research Buttons
+func _on_Solartech1_pressed():
+	pass # replace with function body
+
+
+func _on_Solartech2_pressed():
+	pass # replace with function body
+
+
+func _on_Solartech3_pressed():
+	pass # replace with function body
+
+
+func _on_Windtech1_pressed():
+	pass # replace with function body
+
+
+func _on_Windtech2_pressed():
+	pass # replace with function body
+
+
+func _on_Windtech3_pressed():
+	pass # replace with function body
+
+
+func _on_Nucleartech1_pressed():
+	pass # replace with function body
+
+
+func _on_Nucleartech2_pressed():
+	pass # replace with function body
+
+
+func _on_Nucleartech3_pressed():
+	pass # replace with function body
+
+
+func _on_Fossiltech1_pressed():
+	pass # replace with function body
+
+
+func _on_Fossiltech2_pressed():
+	pass # replace with function body
+
+
+func _on_Fossiltech3_pressed():
+	pass # replace with function body
