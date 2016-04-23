@@ -27,16 +27,14 @@ var law = {
 	"dtax": [0,5,0,0],
 	"itax": [0,5,0,0] 
 }
-var temporary_dick = {}
 
-#print(ultimate_dick["solar"])
 
 #func _process(delta):
 func _ready():
 	set_process(true)	
 
 func CO2_mod():
-	var inc_CO2 = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['coal'][2] +  energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2] + science['solar'][0]*science['solar'][2] + science['wind'][0]*science['wind'][2] + science['nuclear'][0]*science['nuclear'][2] + science['fossil'][0]*science['fossil'][2] + law['forest'][0]*law['forest'][2] + law['ecars'][0]*law['ecars'][2] + law['dtax'][0]*law['dtax'][2] + law['itax'][0]*law['itax'][2]
+	var inc_CO2 = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['coal'][2] + energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2] + science['solar'][0]*science['solar'][2] + science['wind'][0]*science['wind'][2] + science['nuclear'][0]*science['nuclear'][2] + science['fossil'][0]*science['fossil'][2] + law['forest'][0]*law['forest'][2] + law['ecars'][0]*law['ecars'][2] + law['dtax'][0]*law['dtax'][2] + law['itax'][0]*law['itax'][2]
 	print(inc_CO2)
 	return inc_CO2
 	
@@ -47,7 +45,6 @@ func points_mod():
 	
 func _on_reduce_CO2_pressed():
 	compute_action()
-	#print(ultimate_dick['solar'])
 	modifiers()
 
 func compute_action():
@@ -108,28 +105,32 @@ func _on_close_politics_pressed():
 	_on_open_menu_pressed()
 
 func _on_forestry_pressed():
-	if law['forest'][0] == 0:
+	if actions > 0 and law['forest'][0] == 0:
 		law['forest'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_politics/Politics_popup/forestry").set_opacity(0.2)
 	print(law['forest'][0])
-	get_node("menu_popup/open_politics/Politics_popup/forestry").set_opacity(0.2)
 		
 func _on_ecars_pressed():
-	if law['ecars'][0] == 0:
+	if actions > 0 and law['ecars'][0] == 0:
 		law['ecars'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_politics/Politics_popup/ecars").set_opacity(0.2)
 	print(law['ecars'][0])
-	get_node("menu_popup/open_politics/Politics_popup/ecars").set_opacity(0.2)
 
 func _on_dtax_pressed():
-	if law['dtax'][0] == 0:
+	if actions > 0 and law['dtax'][0] == 0:
 		law['dtax'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_politics/Politics_popup/dtax").set_opacity(0.2)
 	print(law['dtax'][0])
-	get_node("menu_popup/open_politics/Politics_popup/dtax").set_opacity(0.2)
 
 func _on_itax_pressed():
-	if law['itax'][0] == 0:
+	if actions > 0 and law['itax'][0] == 0:
 		law['itax'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_politics/Politics_popup/itax").set_opacity(0.2)
 	print(law['itax'][0])
-	get_node("menu_popup/open_politics/Politics_popup/itax").set_opacity(0.2)
 	
 # Energy buttons
 func _on_open_facilities_pressed():
