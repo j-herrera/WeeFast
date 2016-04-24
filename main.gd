@@ -412,7 +412,7 @@ func _on_Nuclear3_pressed():
 func _on_Wind1_pressed():
 	print("miu")
 	if (actions > 0) and (energy['wind'][0] == 0 or energy['wind'][0] == 2) and (points_val >= energy['wind'][1]):
-		energy['wind'][0] = 3
+		energy['wind'][0] = 1
 		_acquireAssets(energy['wind'])
 		compute_action()
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(0.2)
