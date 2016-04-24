@@ -4,16 +4,13 @@ import time
 UDP_IP_IN = "127.0.0.1"
 UDP_PORT_IN = 5004
 
-#UDP_IP_OUT = "127.0.0.1"
 UDP_PORT_OUT = 5005
 
 sock_out = socket.socket(socket.AF_INET, # Internet
 		socket.SOCK_DGRAM) # UDP
-#sock_out.bind((UDP_IP_OUT, UDP_PORT_OUT))
 
 sock_in = socket.socket(socket.AF_INET, # Internet
 		socket.SOCK_DGRAM) # UDP
-#sock_in.bind((UDP_IP_IN, UDP_PORT_IN))
 sock_in.bind(('', UDP_PORT_IN))
 
 # Lobby
@@ -31,7 +28,7 @@ while True:
 		sock_out.sendto(msg.encode(encoding='UTF-8',errors='strict'), (ip2, UDP_PORT_OUT))
 		break
 
-
+# Game
 nm = 0
 while True:
 	data, addr = sock_in.recvfrom(1024)
