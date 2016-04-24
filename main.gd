@@ -10,22 +10,22 @@ var year = 2015
 var actions = 2
 var energy = {
 	"solar" : [0,5,0,-0.4],
-	"coal" : [3,5,1,0.5],
-	"gas" : [3,5,0.5,0.5],
+	"coal" : [3,5,7.08,0.5],
+	"gas" : [3,5,3.2,0.5],
 	"wind" : [0,5,0,-0.4],
 	"nuclear" : [0,10,0,-1]
 	}
 var science = {
-	"solar" : [0,5,-0.2,0],
-	"wind" : [0,5,-0.3,0],
-	"nuclear" : [0,5,-0.3,0],
-	"fossil" : [0,0,0.5,5]
+	"solar" : [0,5,-0.5,0],
+	"wind" : [0,5,-3,0],
+	"nuclear" : [0,5,-3,0],
+	"fossil" : [0,0,5.6,5]
 	}
 var law = {
-	"forest": [0,5,-1,0],
-	"ecars": [0,5,-0.6,0],
-	"dtax": [0,0,0.8,5],
-	"itax": [0,5,-0.8,0] 
+	"forest": [0,5,-10,0],
+	"ecars": [0,5,-6,0],
+	"dtax": [0,0,8,5],
+	"itax": [0,5,-8,0] 
 }
 
 
@@ -240,19 +240,14 @@ func compute_world():
 	var points_mod = points_mod()
 	CO2_val = CO2_val + CO2_rate + CO2_mod 
 	temp_val = 0.008*CO2_val + 10.8
-	print("before: ")
-	print(points_val)
 	points_val += points_rate + points_mod
-	print("after: ")
-	print(points_val)
 	year += 1
 	get_node("C02_value").set_text(str(CO2_val))
 	get_node("Temp_value").set_text(str(temp_val))
 	get_node("year_value").set_text(str(year))
 	get_node("action_value").set_text(str(actions))
 	get_node("points_value").set_text(str(points_val))
-	
-	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*6))
+	get_node("AnimatedSprite").set_frame(int(0+(temp_val-14)*60/4.76))
 	
 	if temp_val > 18.76:
 		get_tree().change_scene("res://lose.scn")
