@@ -93,7 +93,7 @@ func _on_next_turn_pressed():
 func _on_open_research_pressed():
 	_on_close_menu_pressed()
 	get_node("menu_popup/open_research/Research_popup").popup()
-	get_node("menu_popup/open_research/Research_popup").set_exclusive(true)
+	#get_node("menu_popup/open_research/Research_popup").set_exclusive(true)
 
 
 func _on_close_research_pressed():
@@ -235,7 +235,7 @@ func _on_Fossiltech3_pressed():
 func _on_open_politics_pressed():
 	_on_close_menu_pressed()
 	get_node("menu_popup/open_politics/Politics_popup").popup()
-	get_node("menu_popup/open_politics/Politics_popup").set_exclusive(true)
+	#get_node("menu_popup/open_politics/Politics_popup").set_exclusive(true)
 
 func _on_close_politics_pressed():
 	get_node("menu_popup/open_politics/Politics_popup").hide()
@@ -277,7 +277,7 @@ func _on_itax_pressed():
 func _on_open_facilities_pressed():
 	_on_close_menu_pressed()
 	get_node("menu_popup/open_facilities/Facilities_popup").popup()
-	get_node("menu_popup/open_facilities/Facilities_popup").set_exclusive(true)
+	#get_node("menu_popup/open_facilities/Facilities_popup").set_exclusive(true)
 
 func _on_close_facilities_pressed():
 	get_node("menu_popup/open_facilities/Facilities_popup").hide()
