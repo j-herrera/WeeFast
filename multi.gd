@@ -3,6 +3,10 @@ extends Node2D
 var udp = PacketPeerUDP.new()
 var turnblock = false
 
+func send_message(text):
+	if (udp.is_listening()):
+		udp.put_var(text)
+
 var CO2_val = 10
 var CO2_rate = 1
 var temp_val = 20
