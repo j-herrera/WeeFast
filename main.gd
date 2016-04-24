@@ -14,6 +14,7 @@ var energy = {
 	"wind" : [0,5,0,-0.4],
 	"nuclear" : [0,10,0,-1]
 	}
+
 var science = {
 	"solar" : [0,5,-0.2,0],
 	"wind" : [0,5,-0.3,0],
@@ -31,6 +32,8 @@ var law = {
 #func _process(delta):
 func _ready():
 	set_process(true)	
+	get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(0.2)
+	get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(0.2)
 
 func CO2_mod():
 	var inc_CO2 = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['coal'][2] + energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2] + science['solar'][0]*science['solar'][2] + science['wind'][0]*science['wind'][2] + science['nuclear'][0]*science['nuclear'][2] + science['fossil'][0]*science['fossil'][2] + law['forest'][0]*law['forest'][2] + law['ecars'][0]*law['ecars'][2] + law['dtax'][0]*law['dtax'][2] + law['itax'][0]*law['itax'][2]
@@ -110,6 +113,7 @@ func _on_Solartech1_pressed():
 		get_node("menu_popup/open_research/Research_popup/Solartech2").set_opacity(1)
 		get_node("menu_popup/open_research/Research_popup/Solartech3").set_opacity(1)
 	print(science['solar'][0])
+	
 
 func _on_Solartech2_pressed():
 	if (actions > 0) and (science['solar'][0] == 1) and (points_val >= 2 * science['solar'][1]):
@@ -406,8 +410,9 @@ func _on_Nuclear3_pressed():
 	print(energy['nuclear'][0])
 
 func _on_Wind1_pressed():
+	print("miu")
 	if (actions > 0) and (energy['wind'][0] == 0 or energy['wind'][0] == 2) and (points_val >= energy['wind'][1]):
-		energy['wind'][0] = 3
+		energy['wind'][0] = 1
 		_acquireAssets(energy['wind'])
 		compute_action()
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(0.2)
