@@ -67,7 +67,7 @@ func compute_world():
 	get_node("action_value").set_text(str(actions))
 	get_node("points_value").set_text(str(points_val))
 	
-	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*6))
+	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*12))
 	
 	if temp_val > 25:
 		get_tree().change_scene("res://lose.scn")
