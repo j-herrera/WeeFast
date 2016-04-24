@@ -1,5 +1,6 @@
 extends Node2D
 
+var strtp
 var CO2_val = 400 #ppm
 var CO2_rate = 0
 var temp_val = 14
@@ -9,8 +10,8 @@ var year = 2015
 var actions = 2
 var energy = {
 	"solar" : [0,5,0,-0.4],
-	"coal" : [3,5,3,0.5],
-	"gas" : [3,5,1.5,0.5],
+	"coal" : [3,5,1,0.5],
+	"gas" : [3,5,0.5,0.5],
 	"wind" : [0,5,0,-0.4],
 	"nuclear" : [0,10,0,-1]
 	}
@@ -21,7 +22,7 @@ var science = {
 	"fossil" : [0,0,0.5,5]
 	}
 var law = {
-	"forest": [0,5,-2,0],
+	"forest": [0,5,-1,0],
 	"ecars": [0,5,-0.6,0],
 	"dtax": [0,0,0.8,5],
 	"itax": [0,5,-0.8,0] 
@@ -31,7 +32,194 @@ var law = {
 #func _process(delta):
 func _ready():
 	set_process(true)	
+	get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(0.2)
+	get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(0.2)
 
+#Research
+	strtp = """Solar cells 
+	First stage in solar research, you have the tecnology to manufacture solar cells which 
+	are electrical devices that convert the energy of light directly into electricity."""
+	strtp += "\n cost="+ str(science['solar'][1])
+	strtp += "\n CO2 effect="+ str(science['solar'][2])
+	get_node("menu_popup/open_research/Research_popup/Solartech1").set_tooltip(strtp)
+	strtp = """Pointing array
+Second stage in solar research: you are now able to use the solar cells at their
+ full capability following the sun trajectory"""
+	strtp += "\n cost="+ str(2*science['solar'][1])
+	strtp += "\n CO2 effect="+ str(2*science['solar'][2])
+	get_node("menu_popup/open_research/Research_popup/Solartech2").set_tooltip(strtp)
+	strtp = """Mass production
+Last stage in solar research:you have the tecnology necessary for mass production of solar
+ arrays; this will increase your renewable energy source and decrease the CO2 level."""
+	strtp += "\n cost="+ str(3*science['solar'][1])
+	strtp += "\n CO2 effect="+ str(3*science['solar'][2])
+	get_node("menu_popup/open_research/Research_popup/Solartech3").set_tooltip(strtp)
+	strtp="""Materials
+	First stage in wind research: you have the tecnology necessary to build 
+	wind turbines so you can convert kinetic energy from the wind into electrical power."""
+	strtp += "\n cost="+ str(science['wind'][1])
+	strtp += "\n CO2 effect="+ str(science['wind'][2])
+	get_node("menu_popup/open_research/Research_popup/Windtech1").set_tooltip(strtp)
+	strtp = """Aerodinamics
+Second stage in wind research: your knowledge in wind turbine 
+aerodinamics is incresed, you can now increase the turbines efficiecy."""
+	strtp += "\n cost="+str(2*science['wind'][1])
+	strtp += "\n CO2 effect="+str(2*science['wind'][2])
+	get_node("menu_popup/open_research/Research_popup/Windtech2").set_tooltip(strtp)
+	strtp = """High efficiency bearing
+Last stage in wind research: you reached maximum 
+eficiency in your wind turbines."""
+	strtp += "\n cost="+str(3*science['wind'][1])
+	strtp += "\n CO2 effect="+str(3*science['wind'][2])
+	get_node("menu_popup/open_research/Research_popup/Windtech3").set_tooltip(strtp)
+	strtp = """Thorium salt
+First stage in neclear research: you reached the tecnology level necessay 
+to build a nuclear reactor which  initiates and controls a sustained nuclear chain reaction."""
+	strtp += "\n cost="+ str(science['nuclear'][1])
+	strtp += "\n CO2 effect="+ str(science['nuclear'][2])
+	get_node("menu_popup/open_research/Research_popup/Nucleartech1").set_tooltip(strtp)
+	strtp = """Waste reciclyng
+Second stage in nuclear research: you are decreasing 
+your waste production."""
+	strtp += "\n cost="+str(2*science['nuclear'][1])
+	strtp += "\n CO2 effect="+str(2*science['nuclear'][2])
+	get_node("menu_popup/open_research/Research_popup/Nucleartech2").set_tooltip(strtp)
+	strtp = """Fusion
+Last stage in nuclear research: you are 
+finally free from waste."""
+	strtp += "\n cost="+str(3*science['nuclear'][1])
+	strtp += "\n CO2 effect="+str(3*science['nuclear'][2])
+	get_node("menu_popup/open_research/Research_popup/Nucleartech3").set_tooltip(strtp)
+	strtp = """Fracking
+First stage in fossil fuel research:the process of drilling down into the earth before a 
+high-pressure water mixture is directed at the rock to release the gas inside. """
+	strtp += "\n cost="+ str(science['fossil'][1])
+	strtp += "\n CO2 effect="+ str(science['fossil'][2])
+	get_node("menu_popup/open_research/Research_popup/Fossiltech1").set_tooltip(strtp)
+	strtp = """Deep ocean drilling
+Second stage in fossil fuel research:the process of oil and gas exploration in deep ocean;
+ tecnologically more challenging than drilling on ground or shallow water, it increases your oil production."""
+	strtp += "\n cost="+str(2*science['fossil'][1])
+	strtp += "\n CO2 effect="+str(2*science['fossil'][2])
+	get_node("menu_popup/open_research/Research_popup/Fossiltech2").set_tooltip(strtp)
+	strtp = """Super extraction
+Last stage in fossil fuel research: yuo are exstracting oil at your full capability, 
+this produces many points but also has a major effect in CO2 levels."""
+	strtp += "\n cost="+str(3*science['fossil'][1])
+	strtp += "\n CO2 effect="+str(3*science['fossil'][2])
+	get_node("menu_popup/open_research/Research_popup/Fossiltech3").set_tooltip(strtp)
+#politics
+	strtp = "Planting forest"
+	strtp += "\n cost="+ str(law['forest'][1])
+	strtp += "\n additional points="+ str(law['forest'][3])
+	strtp += "\n CO2 effect="+ str(law['forest'][2])
+	get_node("menu_popup/open_politics/Politics_popup/forestry").set_tooltip(strtp)
+	strtp = "Electric cars politcs"
+	strtp += "\n cost="+ str(law['ecars'][1])
+	strtp += "\n additional points="+ str(law['ecars'][3])
+	strtp += "\n CO2 effect="+ str(law['ecars'][2])
+	get_node("menu_popup/open_politics/Politics_popup/ecars").set_tooltip(strtp)
+	strtp = "Decrease oil taxes"
+	strtp += "\n cost="+ str(law['dtax'][1])
+	strtp += "\n additional points="+ str(law['dtax'][3])
+	strtp += "\n CO2 effect="+ str(law['dtax'][2])
+	get_node("menu_popup/open_politics/Politics_popup/dtax").set_tooltip(strtp)
+	strtp = "Increase oil taxes"
+	strtp += "\n cost="+ str(law['itax'][1])
+	strtp += "\n additional points="+ str(law['itax'][3])
+	strtp += "\n CO2 effect="+ str(law['itax'][2])
+	get_node("menu_popup/open_politics/Politics_popup/itax").set_tooltip(strtp)
+#Facilities
+	strtp = "Coal"
+	strtp += "\n starting number of facilities="+ str(energy['coal'][0])
+	strtp += "\n stopping the facility cost="+ str(energy['coal'][1])
+	strtp += "\n additional points per level="+ str(energy['coal'][2])
+	strtp += "\n CO2 effect="+ str(energy['coal'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_tooltip(strtp)
+	strtp = "Coal"
+	strtp += "\n starting number of facilities="+ str(energy['coal'][0])
+	strtp += "\n stopping the facility cost="+str(2*energy['coal'][1])
+	strtp += "\n additional points per level="+str(2*energy['coal'][2])
+	strtp += "\n CO2 effect="+str(2*energy['coal'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_tooltip(strtp)
+	strtp = "Coal"
+	strtp += "\n starting number of facilities="+ str(energy['coal'][0])
+	strtp += "\n stopping the facility cost="+str(3*energy['coal'][1])
+	strtp += "\n additional points per level="+str(3*energy['coal'][2])
+	strtp += "\n CO2 effect="+str(3*energy['coal'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_tooltip(strtp)
+	strtp = "Gas"
+	strtp += "\n starting number of facilities="+ str(energy['gas'][0])
+	strtp += "\n stopping the facility cost="+ str(energy['gas'][1])
+	strtp += "\n additional points per level="+ str(energy['gas'][2])
+	strtp += "\n CO2 effect="+ str(energy['gas'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_tooltip(strtp)
+	strtp = "Gas"
+	strtp += "\n starting number of facilities="+ str(energy['gas'][0])
+	strtp += "\n stopping the facility cost="+str(2*energy['gas'][1])
+	strtp += "\n additional points per level="+str(2*energy['gas'][2])
+	strtp += "\n CO2 effect="+str(2*energy['gas'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_tooltip(strtp)
+	strtp = "Gas"
+	strtp += "\n starting number of facilities="+ str(energy['gas'][0])
+	strtp += "\n stopping the facility cost="+str(3*energy['gas'][1])
+	strtp += "\n additional points per level="+str(3*energy['gas'][2])
+	strtp += "\n CO2 effect="+str(3*energy['gas'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_tooltip(strtp)
+	strtp = "Solar"
+	strtp += "\n starting number of facilities="+ str(energy['solar'][0])
+	strtp += "\n building cost="+ str(energy['solar'][1])
+	strtp += "\n additional points per level="+ str(energy['solar'][2])
+	strtp += "\n CO2 effect="+ str(energy['solar'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_tooltip(strtp)
+	strtp = "Solar"
+	strtp += "\n starting number of facilities="+ str(energy['solar'][0])
+	strtp += "\n building cost="+str(2*energy['solar'][1])
+	strtp += "\n additional points per level="+str(2*energy['solar'][2])
+	strtp += "\n CO2 effect="+str(2*energy['solar'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_tooltip(strtp)
+	strtp = "Solar"
+	strtp += "\n starting number of facilities="+ str(energy['solar'][0])
+	strtp += "\n building cost="+str(3*energy['solar'][1])
+	strtp += "\n additional points per level="+str(3*energy['solar'][2])
+	strtp += "\n CO2 effect="+str(3*energy['solar'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_tooltip(strtp)
+	strtp = "Nuclear"
+	strtp += "\n starting number of facilities="+ str(energy['nuclear'][0])
+	strtp += "\n building cost="+ str(energy['nuclear'][1])
+	strtp += "\n additional points per level="+ str(energy['nuclear'][2])
+	strtp += "\n CO2 effect="+ str(energy['nuclear'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_tooltip(strtp)
+	strtp = "Nuclear"
+	strtp += "\n starting number of facilities="+ str(energy['nuclear'][0])
+	strtp += "\n building cost="+str(2*energy['nuclear'][1])
+	strtp += "\n additional points per level="+str(2*energy['nuclear'][2])
+	strtp += "\n CO2 effect="+str(2*energy['nuclear'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_tooltip(strtp)
+	strtp = "Nuclear"
+	strtp += "\n starting number of facilities="+ str(energy['nuclear'][0])
+	strtp += "\n building cost="+str(3*energy['nuclear'][1])
+	strtp += "\n additional points per level="+str(3*energy['nuclear'][2])
+	strtp += "\n CO2 effect="+str(3*energy['nuclear'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_tooltip(strtp)
+	strtp = "Wind"
+	strtp += "\n starting number of facilities="+ str(energy['wind'][0])
+	strtp += "\n building cost="+ str(energy['wind'][1])
+	strtp += "\n additional points per level="+ str(energy['wind'][2])
+	strtp += "\n CO2 effect="+ str(energy['wind'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_tooltip(strtp)
+	strtp = "Wind"
+	strtp += "\n starting number of facilities="+ str(energy['wind'][0])
+	strtp += "\n building cost="+str(2*energy['wind'][1])
+	strtp += "\n additional points per level="+str(2*energy['wind'][2])
+	strtp += "\n CO2 effect="+str(2*energy['wind'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_tooltip(strtp)
+	strtp = "Wind"
+	strtp += "\n starting number of facilities="+ str(energy['wind'][0])
+	strtp += "\n building cost="+str(3*energy['wind'][1])
+	strtp += "\n additional points per level="+str(3*energy['wind'][2])
+	strtp += "\n CO2 effect="+str(3*energy['wind'][3])
+	get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_tooltip(strtp)
 func CO2_mod():
 	var inc_CO2 = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['coal'][2] + energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2] + science['solar'][0]*science['solar'][2] + science['wind'][0]*science['wind'][2] + science['nuclear'][0]*science['nuclear'][2] + science['fossil'][0]*science['fossil'][2] + law['forest'][0]*law['forest'][2] + law['ecars'][0]*law['ecars'][2] + law['dtax'][0]*law['dtax'][2] + law['itax'][0]*law['itax'][2]
 	print(inc_CO2)
@@ -406,8 +594,9 @@ func _on_Nuclear3_pressed():
 	print(energy['nuclear'][0])
 
 func _on_Wind1_pressed():
+	print("miu")
 	if (actions > 0) and (energy['wind'][0] == 0 or energy['wind'][0] == 2) and (points_val >= energy['wind'][1]):
-		energy['wind'][0] = 3
+		energy['wind'][0] = 1
 		_acquireAssets(energy['wind'])
 		compute_action()
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(0.2)

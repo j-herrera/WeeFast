@@ -9,7 +9,7 @@ func _on_single_pressed():
 
 
 func _on_multi_pressed():
-	get_tree().change_scene("res://multi.scn")
+	get_tree().change_scene("res://lobby.scn")
 
 
 func _on_exit_pressed():
