@@ -53,7 +53,11 @@ func compute_world():
 	var points_mod = points_mod()
 	CO2_val = CO2_val + CO2_rate + CO2_mod 
 	temp_val += CO2_val * 0.01
-	points_val = points_rate + points_mod
+	print("before: ")
+	print(points_val)
+	points_val += points_rate + points_mod
+	print("after: ")
+	print(points_val)
 	year += 1
 	get_node("C02_value").set_text(str(CO2_val))
 	get_node("Temp_value").set_text(str(temp_val))
@@ -97,7 +101,7 @@ func _on_close_research_pressed():
 	_on_open_menu_pressed()
 
 func _on_Solartech1_pressed():
-	if actions > 0 and science['solar'][0] == 0:
+	if (actions > 0) and (science['solar'][0] == 0) and (points_val >= science['solar'][1]):
 		science['solar'][0] = 1
 		_acquireAssets(science['solar'])
 		compute_action()
@@ -107,7 +111,7 @@ func _on_Solartech1_pressed():
 	print(science['solar'][0])
 
 func _on_Solartech2_pressed():
-	if actions > 0 and science['solar'][0] == 1:
+	if (actions > 0) and (science['solar'][0] == 1) and (points_val >= 2 * science['solar'][1]):
 		science['solar'][0] = 2
 		_acquireAssets(science['solar'])
 		compute_action()
@@ -118,7 +122,7 @@ func _on_Solartech2_pressed():
 
 
 func _on_Solartech3_pressed():
-	if actions > 0 and science['solar'][0] == 2:
+	if (actions > 0) and (science['solar'][0] == 2) and (points_val >= 3 * science['solar'][1]):
 		science['solar'][0] = 3
 		_acquireAssets(science['solar'])
 		compute_action()
@@ -129,7 +133,7 @@ func _on_Solartech3_pressed():
 
 
 func _on_Windtech1_pressed():
-	if actions > 0 and science['wind'][0] == 0:
+	if (actions > 0) and (science['wind'][0] == 0) and (points_val >= science['wind'][1]):
 		science['wind'][0] = 1
 		_acquireAssets(science['wind'])
 		compute_action()
@@ -140,7 +144,7 @@ func _on_Windtech1_pressed():
 
 
 func _on_Windtech2_pressed():
-	if actions > 0 and science['wind'][0] == 1:
+	if (actions > 0) and (science['wind'][0] == 1) and (points_val >= 2 * science['wind'][1]):
 		science['wind'][0] = 2
 		_acquireAssets(science['wind'])
 		compute_action()
@@ -151,7 +155,7 @@ func _on_Windtech2_pressed():
 
 
 func _on_Windtech3_pressed():
-	if actions > 0 and science['wind'][0] == 2:
+	if (actions > 0) and (science['wind'][0] == 2)  and (points_val >= 3 * science['wind'][1]):
 		science['wind'][0] = 3
 		_acquireAssets(science['wind'])
 		compute_action()
@@ -162,7 +166,7 @@ func _on_Windtech3_pressed():
 
 
 func _on_Nucleartech1_pressed():
-	if actions > 0 and science['nuclear'][0] == 0:
+	if (actions > 0) and (science['nuclear'][0] == 0) and (points_val >= science['nuclear'][1]):
 		science['nuclear'][0] = 1
 		_acquireAssets(science['nuclear'])
 		compute_action()
@@ -173,7 +177,7 @@ func _on_Nucleartech1_pressed():
 
 
 func _on_Nucleartech2_pressed():
-	if actions > 0 and science['nuclear'][0] == 1:
+	if (actions > 0) and (science['nuclear'][0] == 1) and (points_val >= 2 * science['nuclear'][1]):
 		science['nuclear'][0] = 2
 		_acquireAssets(science['nuclear'])
 		compute_action()
@@ -184,7 +188,7 @@ func _on_Nucleartech2_pressed():
 
 
 func _on_Nucleartech3_pressed():
-	if actions > 0 and science['nuclear'][0] == 2:
+	if (actions > 0) and (science['nuclear'][0] == 2) and (points_val >= 3 * science['nuclear'][1]):
 		science['nuclear'][0] = 3
 		_acquireAssets(science['nuclear'])
 		compute_action()
@@ -195,7 +199,7 @@ func _on_Nucleartech3_pressed():
 
 
 func _on_Fossiltech1_pressed():
-	if actions > 0 and science['fossil'][0] == 0:
+	if (actions > 0) and (science['fossil'][0] == 0) and (points_val >= science['fossil'][1]):
 		science['fossil'][0] = 1
 		_acquireAssets(science['fossil'])
 		compute_action()
@@ -206,7 +210,7 @@ func _on_Fossiltech1_pressed():
 
 
 func _on_Fossiltech2_pressed():
-	if actions > 0 and science['fossil'][0] == 1:
+	if (actions > 0) and (science['fossil'][0] == 1) and (points_val >= 2 * science['fossil'][1]):
 		science['fossil'][0] = 2
 		_acquireAssets(science['fossil'])
 		compute_action()
@@ -217,7 +221,7 @@ func _on_Fossiltech2_pressed():
 
 
 func _on_Fossiltech3_pressed():
-	if actions > 0 and science['fossil'][0] == 2:
+	if (actions > 0) and (science['fossil'][0] == 2) and (points_val >= 3 * science['fossil'][1]):
 		science['fossil'][0] = 3
 		_acquireAssets(science['fossil'])
 		compute_action()
@@ -238,7 +242,7 @@ func _on_close_politics_pressed():
 	_on_open_menu_pressed()
 
 func _on_forestry_pressed():
-	if actions > 0 and law['forest'][0] == 0:
+	if (actions > 0) and (law['forest'][0] == 0) and (points_val >= law['forest'][1]):
 		law['forest'][0] = 1
 		_acquireAssets(law['forest'])
 		compute_action()
@@ -246,7 +250,7 @@ func _on_forestry_pressed():
 	print(law['forest'][0])
 		
 func _on_ecars_pressed():
-	if actions > 0 and law['ecars'][0] == 0:
+	if (actions > 0) and (law['ecars'][0] == 0) and (points_val >= law['ecars'][1]):
 		law['ecars'][0] = 1
 		_acquireAssets(law['ecars'])
 		compute_action()
@@ -254,7 +258,7 @@ func _on_ecars_pressed():
 	print(law['ecars'][0])
 
 func _on_dtax_pressed():
-	if actions > 0 and law['dtax'][0] == 0:
+	if (actions > 0) and (law['dtax'][0] == 0) and (points_val >= law['dtax'][1]):
 		law['dtax'][0] = 1
 		_acquireAssets(law['dtax'])
 		compute_action()
@@ -262,7 +266,7 @@ func _on_dtax_pressed():
 	print(law['dtax'][0])
 
 func _on_itax_pressed():
-	if actions > 0 and law['itax'][0] == 0:
+	if (actions > 0) and (law['itax'][0] == 0) and (points_val >= law['itax'][1]):
 		law['itax'][0] = 1
 		_acquireAssets(law['itax'])
 		compute_action()
@@ -281,7 +285,7 @@ func _on_close_facilities_pressed():
 
 
 func _on_Coal1_pressed():
-	if (actions > 0) and (energy['coal'][0] == 0 or energy['coal'][0] == 2):
+	if (actions > 0) and (energy['coal'][0] == 0 or energy['coal'][0] == 2) and (points_val >= energy['coal'][1]):
 		energy['coal'][0] = 1
 		_acquireAssets(energy['coal'])
 		compute_action()
@@ -291,7 +295,7 @@ func _on_Coal1_pressed():
 	print(energy['coal'][0])
 
 func _on_Coal2_pressed():
-	if (actions > 0) and (energy['coal'][0] == 1 or energy['coal'][0] == 3):
+	if (actions > 0) and (energy['coal'][0] == 1 or energy['coal'][0] == 3) and (points_val >= 2 * energy['coal'][1]):
 		energy['coal'][0] = 2
 		_acquireAssets(energy['coal'])
 		compute_action()
@@ -301,7 +305,7 @@ func _on_Coal2_pressed():
 	print(energy['coal'][0])
 
 func _on_Coal3_pressed():
-	if (actions > 0) and (energy['coal'][0] == 2):
+	if (actions > 0) and (energy['coal'][0] == 2) and (points_val >= 3 * energy['coal'][1]):
 		energy['coal'][0] = 3
 		_acquireAssets(energy['coal'])
 		compute_action()
@@ -311,7 +315,7 @@ func _on_Coal3_pressed():
 	print(energy['coal'][0])
 
 func _on_Gas1_pressed():
-	if (actions > 0) and (energy['gas'][0] == 0 or energy['gas'][0] == 2):
+	if (actions > 0) and (energy['gas'][0] == 0 or energy['gas'][0] == 2) and (points_val >= energy['gas'][1]):
 		energy['gas'][0] = 1
 		_acquireAssets(energy['gas'])
 		compute_action()
@@ -321,7 +325,7 @@ func _on_Gas1_pressed():
 	print(energy['gas'][0])
 
 func _on_Gas2_pressed():
-	if (actions > 0) and (energy['gas'][1] == 0 or energy['gas'][0] == 3):
+	if (actions > 0) and (energy['gas'][1] == 0 or energy['gas'][0] == 3) and (points_val >= 2 * energy['gas'][1]):
 		energy['gas'][0] = 2
 		_acquireAssets(energy['gas'])
 		compute_action()
@@ -331,7 +335,7 @@ func _on_Gas2_pressed():
 	print(energy['gas'][0])
 
 func _on_Gas3_pressed():
-	if (actions > 0) and (energy['gas'][0] == 2):
+	if (actions > 0) and (energy['gas'][0] == 2) and (points_val >= 3 * energy['gas'][1]):
 		energy['gas'][0] = 3
 		_acquireAssets(energy['gas'])
 		compute_action()
@@ -341,7 +345,7 @@ func _on_Gas3_pressed():
 	print(energy['gas'][0])
 
 func _on_Solar1_pressed():
-	if (actions > 0) and (energy['solar'][0] == 0 or energy['solar'][0] == 2):
+	if (actions > 0) and (energy['solar'][0] == 0 or energy['solar'][0] == 2) and (points_val >= energy['solar'][1]):
 		energy['solar'][0] = 1
 		_acquireAssets(energy['solar'])
 		compute_action()
@@ -351,7 +355,7 @@ func _on_Solar1_pressed():
 	print(energy['solar'][0])
 
 func _on_Solar2_pressed():
-	if (actions > 0) and (energy['solar'][0] == 1 or energy['solar'][0] == 3):
+	if (actions > 0) and (energy['solar'][0] == 1 or energy['solar'][0] == 3) and (points_val >= 2 * energy['solar'][1]):
 		energy['solar'][0] = 2
 		_acquireAssets(energy['solar'])
 		compute_action()
@@ -361,7 +365,7 @@ func _on_Solar2_pressed():
 	print(energy['solar'][0])
 
 func _on_Solar3_pressed():
-	if (actions > 0) and (energy['solar'][0] == 2):
+	if (actions > 0) and (energy['solar'][0] == 2) and (points_val >= 3 * energy['solar'][1]):
 		energy['solar'][0] = 3
 		_acquireAssets(energy['solar'])
 		compute_action()
@@ -371,7 +375,7 @@ func _on_Solar3_pressed():
 	print(energy['solar'][0])
 
 func _on_Nuclear1_pressed():
-	if (actions > 0) and (energy['nuclear'][0] == 0 or energy['nuclear'][0] == 2):
+	if (actions > 0) and (energy['nuclear'][0] == 0 or energy['nuclear'][0] == 2) and (points_val >= energy['nuclear'][1]):
 		energy['nuclear'][0] = 1
 		_acquireAssets(energy['nuclear'])
 		compute_action()
@@ -381,7 +385,7 @@ func _on_Nuclear1_pressed():
 	print(energy['nuclear'][0])
 
 func _on_Nuclear2_pressed():
-	if (actions > 0) and (energy['nuclear'][0] == 1 or energy['nuclear'][0] == 3):
+	if (actions > 0) and (energy['nuclear'][0] == 1 or energy['nuclear'][0] == 3) and (points_val >= 2 * energy['nuclear'][1]):
 		energy['nuclear'][0] = 2
 		_acquireAssets(energy['nuclear'])
 		compute_action()
@@ -391,7 +395,7 @@ func _on_Nuclear2_pressed():
 	print(energy['nuclear'][0])
 
 func _on_Nuclear3_pressed():
-	if (actions > 0) and (energy['nuclear'][0] == 2):
+	if (actions > 0) and (energy['nuclear'][0] == 2) and (points_val >= 3 * energy['nuclear'][1]):
 		energy['nuclear'][0] = 3
 		_acquireAssets(energy['nuclear'])
 		compute_action()
@@ -401,7 +405,7 @@ func _on_Nuclear3_pressed():
 	print(energy['nuclear'][0])
 
 func _on_Wind1_pressed():
-	if (actions > 0) and (energy['wind'][0] == 0 or energy['wind'][0] == 2):
+	if (actions > 0) and (energy['wind'][0] == 0 or energy['wind'][0] == 2) and (points_val >= energy['wind'][1]):
 		energy['wind'][0] = 3
 		_acquireAssets(energy['wind'])
 		compute_action()
@@ -411,7 +415,7 @@ func _on_Wind1_pressed():
 	print(energy['wind'][0])
 
 func _on_Wind2_pressed():
-	if (actions > 0) and (energy['wind'][0] == 1 or energy['wind'][0] == 3):
+	if (actions > 0) and (energy['wind'][0] == 1 or energy['wind'][0] == 3) and (points_val >= 2 * energy['wind'][1]):
 		energy['wind'][0] = 2
 		_acquireAssets(energy['wind'])
 		compute_action()
@@ -421,7 +425,7 @@ func _on_Wind2_pressed():
 	print(energy['wind'][0])
 
 func _on_Wind3_pressed():
-	if (actions > 0) and (energy['wind'][0] == 2):
+	if (actions > 0) and (energy['wind'][0] == 2) and (points_val >= 3 * energy['wind'][1]):
 		energy['wind'][0] = 3
 		_acquireAssets(energy['wind'])
 		compute_action()
