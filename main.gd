@@ -82,6 +82,8 @@ func _on_next_turn_pressed():
 	actions = 2
 	get_node("action_value").set_text(str(actions))
 
+
+# Research buttons
 func _on_open_research_pressed():
 	_on_close_menu_pressed()
 	get_node("menu_popup/open_research/Research_popup").popup()
@@ -91,6 +93,125 @@ func _on_open_research_pressed():
 func _on_close_research_pressed():
 	get_node("menu_popup/open_research/Research_popup").hide()
 	_on_open_menu_pressed()
+
+func _on_Solartech1_pressed():
+	if actions > 0 and science['solar'][0] == 0:
+		science['solar'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Solartech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Solartech2").set_opacity(1)
+		get_node("menu_popup/open_research/Research_popup/Solartech3").set_opacity(1)
+	print(science['solar'][0])
+
+func _on_Solartech2_pressed():
+	if actions > 0 and science['solar'][0] == 1:
+		science['solar'][0] = 2
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Solartech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Solartech2").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Solartech3").set_opacity(1)
+	print(science['solar'][0])
+
+
+func _on_Solartech3_pressed():
+	if actions > 0 and science['solar'][0] == 2:
+		science['solar'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Solartech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Solartech2").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Solartech3").set_opacity(0.2)
+	print(science['solar'][0])
+
+
+func _on_Windtech1_pressed():
+	if actions > 0 and science['wind'][0] == 0:
+		science['wind'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Windtech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Windtech2").set_opacity(1)
+		get_node("menu_popup/open_research/Research_popup/Windtech3").set_opacity(1)
+	print(science['wind'][0])
+
+
+func _on_Windtech2_pressed():
+	if actions > 0 and science['wind'][0] == 1:
+		science['wind'][0] = 2
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Windtech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Windtech2").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Windtech3").set_opacity(1)
+	print(science['wind'][0])
+
+
+func _on_Windtech3_pressed():
+	if actions > 0 and science['wind'][0] == 2:
+		science['wind'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Windtech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Windtech2").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Windtech3").set_opacity(0.2)
+	print(science['wind'][0])
+
+
+func _on_Nucleartech1_pressed():
+	if actions > 0 and science['nuclear'][0] == 0:
+		science['nuclear'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Nucleartech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Nucleartech2").set_opacity(1)
+		get_node("menu_popup/open_research/Research_popup/Nucleartech3").set_opacity(1)
+	print(science['nuclear'][0])
+
+
+func _on_Nucleartech2_pressed():
+	if actions > 0 and science['nuclear'][0] == 1:
+		science['nuclear'][0] = 2
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Nucleartech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Nucleartech2").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Nucleartech3").set_opacity(1)
+	print(science['nuclear'][0])
+
+
+func _on_Nucleartech3_pressed():
+	if actions > 0 and science['nuclear'][0] == 2:
+		science['nuclear'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Nucleartech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Nucleartech2").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Nucleartech3").set_opacity(0.2)
+	print(science['nuclear'][0])
+
+
+func _on_Fossiltech1_pressed():
+	if actions > 0 and science['fossil'][0] == 0:
+		science['fossil'][0] = 1
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Fossiltech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Fossiltech2").set_opacity(1)
+		get_node("menu_popup/open_research/Research_popup/Fossiltech3").set_opacity(1)
+	print(science['fossil'][0])
+
+
+func _on_Fossiltech2_pressed():
+	if actions > 0 and science['fossil'][0] == 1:
+		science['fossil'][0] = 2
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Fossiltech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Fossiltech2").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Fossiltech3").set_opacity(1)
+	print(science['fossil'][0])
+
+
+func _on_Fossiltech3_pressed():
+	if actions > 0 and science['fossil'][0] == 2:
+		science['fossil'][0] = 3
+		compute_action()
+		get_node("menu_popup/open_research/Research_popup/Fossiltech1").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Fossiltech2").set_opacity(0.2)
+		get_node("menu_popup/open_research/Research_popup/Fossiltech3").set_opacity(0.2)
+	print(science['fossil'][0])
+	
 
 # Law buttons 
 func _on_open_politics_pressed():
@@ -275,51 +396,3 @@ func _on_Wind3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(0.2)
 	print(energy['wind'][0]) 
-
-# Research Buttons
-func _on_Solartech1_pressed():
-	pass # replace with function body
-
-
-func _on_Solartech2_pressed():
-	pass # replace with function body
-
-
-func _on_Solartech3_pressed():
-	pass # replace with function body
-
-
-func _on_Windtech1_pressed():
-	pass # replace with function body
-
-
-func _on_Windtech2_pressed():
-	pass # replace with function body
-
-
-func _on_Windtech3_pressed():
-	pass # replace with function body
-
-
-func _on_Nucleartech1_pressed():
-	pass # replace with function body
-
-
-func _on_Nucleartech2_pressed():
-	pass # replace with function body
-
-
-func _on_Nucleartech3_pressed():
-	pass # replace with function body
-
-
-func _on_Fossiltech1_pressed():
-	pass # replace with function body
-
-
-func _on_Fossiltech2_pressed():
-	pass # replace with function body
-
-
-func _on_Fossiltech3_pressed():
-	pass # replace with function body
