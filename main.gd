@@ -265,7 +265,7 @@ func _on_close_menu_pressed():
 	
 func _on_open_menu_pressed():
 	get_node("menu_popup").popup()
-	get_node("menu_popup").set_exclusive(true)
+	#get_node("menu_popup").set_exclusive(true)
 
 func _on_next_turn_pressed():
 	compute_world()
