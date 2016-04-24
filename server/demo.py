@@ -31,7 +31,7 @@ while True:
 		sock_out.sendto(msg.encode(encoding='UTF-8',errors='strict'), (ip2, UDP_PORT_OUT))
 		break
 
-td = 0
+
 nm = 0
 while True:
 	data, addr = sock_in.recvfrom(1024)
@@ -39,13 +39,16 @@ while True:
 	print(data)
 	print(addr[0])
 	
-	if (addr[0] == ip1 or addr[0] == ip2):
-		str1 = data.decode()
-		td += float(str1.split("mamma")[1])
+	if (addr[0] == ip1):
+		data1 = data
+		nm += 1
+	
+	if (addr[0] == ip2):
+		data2 = data
 		nm += 1
 	
 	if nm == 2:
-		msg = str(td)
-		sock_out.sendto(msg.encode(encoding='UTF-8',errors='strict'), (ip1, UDP_PORT_OUT))
-		sock_out.sendto(msg.encode(encoding='UTF-8',errors='strict'), (ip2, UDP_PORT_OUT))
+		sock_out.sendto(data1, (ip2, UDP_PORT_OUT))
+		sock_out.sendto(data2, (ip1, UDP_PORT_OUT))
+		nm = 0
 
