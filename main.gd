@@ -67,7 +67,7 @@ func compute_world():
 	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*6))
 	
 	if temp_val > 25:
-		get_tree().change_scene("res://win.scn")
+		get_tree().change_scene("res://lose.scn")
 	elif year > 200:
 		get_tree().change_scene("res://win.scn")
 
