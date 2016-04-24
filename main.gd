@@ -65,6 +65,7 @@ func compute_world():
 	get_node("Temp_value").set_text(str(temp_val))
 	get_node("year_value").set_text(str(year))
 	get_node("action_value").set_text(str(actions))
+	get_node("points_value").set_text(str(points_val))
 	
 	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*6))
 	
@@ -75,6 +76,7 @@ func compute_world():
 
 func _acquireAssets(dict):
 	points_val -= dict[0] * dict[1]
+	get_node("points_value").set_text(str(points_val))
 
 
 func _on_close_menu_pressed():
