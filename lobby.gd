@@ -14,6 +14,7 @@ func _ready():
 	if (err != OK):
 		print("Errorrrrr")
 		return
+	err = udp.set_send_address("localhost",5004)
 	if (err != OK):
 		print("Errorrrrr")
 		return
