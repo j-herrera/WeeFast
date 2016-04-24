@@ -1,12 +1,12 @@
 extends Node2D
 
 var strtp
-var CO2_val = 10
-var CO2_rate = 1
-var temp_val = 20
+var CO2_val = 400 #ppm
+var CO2_rate = 0
+var temp_val = 14
 var points_val = 50
 var points_rate = 2
-var year = 1
+var year = 2015
 var actions = 2
 var energy = {
 	"solar" : [0,5,0,-0.4],
@@ -15,7 +15,6 @@ var energy = {
 	"wind" : [0,5,0,-0.4],
 	"nuclear" : [0,10,0,-1]
 	}
-
 var science = {
 	"solar" : [0,5,-0.2,0],
 	"wind" : [0,5,-0.3,0],
@@ -240,7 +239,7 @@ func compute_world():
 	var CO2_mod = CO2_mod()
 	var points_mod = points_mod()
 	CO2_val = CO2_val + CO2_rate + CO2_mod 
-	temp_val += CO2_val * 0.01
+	temp_val = 0.008*CO2_val + 10.8
 	print("before: ")
 	print(points_val)
 	points_val += points_rate + points_mod
@@ -253,11 +252,11 @@ func compute_world():
 	get_node("action_value").set_text(str(actions))
 	get_node("points_value").set_text(str(points_val))
 	
-	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*12))
+	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*6))
 	
-	if temp_val > 25:
+	if temp_val > 18.76:
 		get_tree().change_scene("res://lose.scn")
-	elif year > 10:
+	elif year > 2100:
 		get_tree().change_scene("res://win.scn")
 
 func _acquireAssets(dict):
@@ -298,9 +297,7 @@ func _on_Solartech1_pressed():
 		get_node("menu_popup/open_research/Research_popup/Solartech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Solartech2").set_opacity(1)
 		get_node("menu_popup/open_research/Research_popup/Solartech3").set_opacity(1)
-		
 	print(science['solar'][0])
-	
 
 func _on_Solartech2_pressed():
 	if (actions > 0) and (science['solar'][0] == 1) and (points_val >= 2 * science['solar'][1]):
