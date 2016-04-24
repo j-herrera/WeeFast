@@ -13,7 +13,7 @@ var energy = {
 	"coal" : [3,5,7.08,0.5],
 	"gas" : [3,5,3.2,0.5],
 	"wind" : [0,5,-0.8,-0.5],
-	"nuclear" : [0,10,-3,-1]
+	"nuclear" : [0,10,-2.5,-1]
 	}
 var science = {
 	"solar" : [0,5,-0.5,0],
@@ -22,10 +22,10 @@ var science = {
 	"fossil" : [0,0,5.6,5]
 	}
 var law = {
-	"forest": [0,5,-4.14,0],
-	"ecars": [0,5,-6,0],
-	"dtax": [0,0,8,5],
-	"itax": [0,5,-8,0] 
+	"forest": [0,5,-1.14,0],
+	"ecars": [0,5,-2,0],
+	"dtax": [0,0,0.5,5],
+	"itax": [0,5,-0.5,0] 
 }
 
 
@@ -133,38 +133,38 @@ this produces many points but also has a major effect in CO2 levels."""
 	strtp = "Coal"
 	strtp += "\n starting number of facilities="+ str(energy['coal'][0])
 	strtp += "\n stopping the facility cost="+ str(energy['coal'][1])
-	strtp += "\n additional points per level="+ str(energy['coal'][2])
-	strtp += "\n CO2 effect="+ str(energy['coal'][3])
+	strtp += "\n additional points per level="+ str(energy['coal'][3])
+	strtp += "\n CO2 effect="+ str(energy['coal'][2])
 	get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_tooltip(strtp)
 	strtp = "Coal"
 	strtp += "\n starting number of facilities="+ str(energy['coal'][0])
 	strtp += "\n stopping the facility cost="+str(2*energy['coal'][1])
-	strtp += "\n additional points per level="+str(2*energy['coal'][2])
-	strtp += "\n CO2 effect="+str(2*energy['coal'][3])
+	strtp += "\n additional points per level="+str(2*energy['coal'][3])
+	strtp += "\n CO2 effect="+str(2*energy['coal'][2])
 	get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_tooltip(strtp)
 	strtp = "Coal"
 	strtp += "\n starting number of facilities="+ str(energy['coal'][0])
 	strtp += "\n stopping the facility cost="+str(3*energy['coal'][1])
-	strtp += "\n additional points per level="+str(3*energy['coal'][2])
-	strtp += "\n CO2 effect="+str(3*energy['coal'][3])
+	strtp += "\n additional points per level="+str(3*energy['coal'][3])
+	strtp += "\n CO2 effect="+str(3*energy['coal'][2])
 	get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_tooltip(strtp)
 	strtp = "Gas"
 	strtp += "\n starting number of facilities="+ str(energy['gas'][0])
 	strtp += "\n stopping the facility cost="+ str(energy['gas'][1])
-	strtp += "\n additional points per level="+ str(energy['gas'][2])
-	strtp += "\n CO2 effect="+ str(energy['gas'][3])
+	strtp += "\n additional points per level="+ str(energy['gas'][3])
+	strtp += "\n CO2 effect="+ str(energy['gas'][2])
 	get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_tooltip(strtp)
 	strtp = "Gas"
 	strtp += "\n starting number of facilities="+ str(energy['gas'][0])
 	strtp += "\n stopping the facility cost="+str(2*energy['gas'][1])
-	strtp += "\n additional points per level="+str(2*energy['gas'][2])
-	strtp += "\n CO2 effect="+str(2*energy['gas'][3])
+	strtp += "\n additional points per level="+str(2*energy['gas'][3])
+	strtp += "\n CO2 effect="+str(2*energy['gas'][2])
 	get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_tooltip(strtp)
 	strtp = "Gas"
 	strtp += "\n starting number of facilities="+ str(energy['gas'][0])
 	strtp += "\n stopping the facility cost="+str(3*energy['gas'][1])
-	strtp += "\n additional points per level="+str(3*energy['gas'][2])
-	strtp += "\n CO2 effect="+str(3*energy['gas'][3])
+	strtp += "\n additional points per level="+str(3*energy['gas'][3])
+	strtp += "\n CO2 effect="+str(3*energy['gas'][2])
 	get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_tooltip(strtp)
 	strtp = "Solar"
 	strtp += "\n starting number of facilities="+ str(energy['solar'][0])
@@ -221,12 +221,12 @@ this produces many points but also has a major effect in CO2 levels."""
 	strtp += "\n CO2 effect="+str(3*energy['wind'][3])
 	get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_tooltip(strtp)
 func CO2_mod():
-	var inc_CO2 = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['coal'][2] + energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2] + science['solar'][0]*science['solar'][2] + science['wind'][0]*science['wind'][2] + science['nuclear'][0]*science['nuclear'][2] + science['fossil'][0]*science['fossil'][2] + law['forest'][0]*law['forest'][2] + law['ecars'][0]*law['ecars'][2] + law['dtax'][0]*law['dtax'][2] + law['itax'][0]*law['itax'][2]
+	var inc_CO2 = energy['solar'][0]*energy['solar'][3] + energy['coal'][0]*energy['solar'][4] + energy['gas'][0]*energy['gas'][2] + energy['wind'][0]*energy['wind'][2] + energy['nuclear'][0]*energy['nuclear'][2] + science['solar'][0]*science['solar'][2] + science['wind'][0]*science['wind'][2] + science['nuclear'][0]*science['nuclear'][2] + science['fossil'][0]*science['fossil'][2] + law['forest'][0]*law['forest'][2] + law['ecars'][0]*law['ecars'][2] + law['dtax'][0]*law['dtax'][2] + law['itax'][0]*law['itax'][2]
 	print(inc_CO2)
 	return inc_CO2
 	
 func points_mod():
-	var inc_points = energy['solar'][0]*energy['solar'][3] + energy['coal'][0]*energy['coal'][3] +  energy['gas'][0]*energy['gas'][3] + energy['wind'][0]*energy['wind'][3] + energy['nuclear'][0]*energy['nuclear'][3] + science['solar'][0]*science['solar'][3] + science['wind'][0]*science['wind'][3] + science['nuclear'][0]*science['nuclear'][3] + science['fossil'][0]*science['fossil'][3] + law['forest'][0]*law['forest'][3] + law['ecars'][0]*law['ecars'][3] + law['dtax'][0]*law['dtax'][3] + law['itax'][0]*law['itax'][3]
+	var inc_points = energy['solar'][0]*energy['solar'][2] + energy['coal'][0]*energy['solar'][2] +  energy['gas'][0]*energy['gas'][3] + energy['wind'][0]*energy['wind'][3] + energy['nuclear'][0]*energy['nuclear'][3] + science['solar'][0]*science['solar'][3] + science['wind'][0]*science['wind'][3] + science['nuclear'][0]*science['nuclear'][3] + science['fossil'][0]*science['fossil'][3] + law['forest'][0]*law['forest'][3] + law['ecars'][0]*law['ecars'][3] + law['dtax'][0]*law['dtax'][3] + law['itax'][0]*law['itax'][3]
 	print(inc_points)
 	return inc_points
 
