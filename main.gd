@@ -15,6 +15,7 @@ var energy = {
 	"wind" : [0,5,0,-0.4],
 	"nuclear" : [0,10,0,-1]
 	}
+
 var science = {
 	"solar" : [0,5,-0.2,0],
 	"wind" : [0,5,-0.3,0],
@@ -32,6 +33,8 @@ var law = {
 #func _process(delta):
 func _ready():
 	set_process(true)	
+	get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(0.2)
+	get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(0.2)
 
 #Research
 	strtp = """Solar cells 
@@ -250,11 +253,11 @@ func compute_world():
 	get_node("action_value").set_text(str(actions))
 	get_node("points_value").set_text(str(points_val))
 	
-	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*6))
+	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*12))
 	
 	if temp_val > 25:
 		get_tree().change_scene("res://lose.scn")
-	elif year > 200:
+	elif year > 10:
 		get_tree().change_scene("res://win.scn")
 
 func _acquireAssets(dict):
@@ -297,6 +300,7 @@ func _on_Solartech1_pressed():
 		get_node("menu_popup/open_research/Research_popup/Solartech3").set_opacity(1)
 		
 	print(science['solar'][0])
+	
 
 func _on_Solartech2_pressed():
 	if (actions > 0) and (science['solar'][0] == 1) and (points_val >= 2 * science['solar'][1]):
@@ -593,8 +597,9 @@ func _on_Nuclear3_pressed():
 	print(energy['nuclear'][0])
 
 func _on_Wind1_pressed():
+	print("miu")
 	if (actions > 0) and (energy['wind'][0] == 0 or energy['wind'][0] == 2) and (points_val >= energy['wind'][1]):
-		energy['wind'][0] = 3
+		energy['wind'][0] = 1
 		_acquireAssets(energy['wind'])
 		compute_action()
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(0.2)
