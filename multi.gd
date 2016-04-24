@@ -43,7 +43,7 @@ func _process(delta):
 			get_node("pause_popup").hide()
 			var packet = udp.get_var()
 			if (typeof(packet) == TYPE_STRING):
-				C02_val += float(packet)
+				CO2_val += float(packet) + CO2_rate + CO2_mod()
 
 func _ready():
 	set_process(true)	
@@ -53,7 +53,7 @@ func _ready():
 	if (err != OK):
 		print("Errorrrrr")
 		return
-	err = udp.set_send_address("127.0.0.1",5004)
+	err = udp.set_send_address("localhost",5004)
 	if (err != OK):
 		print("Errorrrrr")
 		return
@@ -116,7 +116,7 @@ func _on_next_turn_pressed():
 	get_node("action_value").set_text(str(actions))
 	turnblock = true
 	get_node("pause_popup").popup()
-	send_message("mamma" + str(CO2_rate+CO2_mod()) + "mamma")
+	send_message(str(CO2_rate+CO2_mod()))
 
 
 # Research buttons
