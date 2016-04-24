@@ -1,16 +1,16 @@
 extends Node2D
 
-var CO2_val = 10
-var CO2_rate = 1
-var temp_val = 20
+var CO2_val = 400 #ppm
+var CO2_rate = 0
+var temp_val = 14
 var points_val = 50
 var points_rate = 2
-var year = 1
+var year = 2015
 var actions = 2
 var energy = {
 	"solar" : [0,5,0,-0.4],
-	"coal" : [3,5,1,0.5],
-	"gas" : [3,5,0.5,0.5],
+	"coal" : [3,5,3,0.5],
+	"gas" : [3,5,1.5,0.5],
 	"wind" : [0,5,0,-0.4],
 	"nuclear" : [0,10,0,-1]
 	}
@@ -21,7 +21,7 @@ var science = {
 	"fossil" : [0,0,0.5,5]
 	}
 var law = {
-	"forest": [0,5,-1,0],
+	"forest": [0,5,-2,0],
 	"ecars": [0,5,-0.6,0],
 	"dtax": [0,0,0.8,5],
 	"itax": [0,5,-0.8,0] 
@@ -51,7 +51,7 @@ func compute_world():
 	var CO2_mod = CO2_mod()
 	var points_mod = points_mod()
 	CO2_val = CO2_val + CO2_rate + CO2_mod 
-	temp_val += CO2_val * 0.01
+	temp_val = 0.008*CO2_val + 10.8
 	print("before: ")
 	print(points_val)
 	points_val += points_rate + points_mod
@@ -66,9 +66,9 @@ func compute_world():
 	
 	get_node("AnimatedSprite").set_frame(int(0+(temp_val-20)*6))
 	
-	if temp_val > 25:
+	if temp_val > 18.76:
 		get_tree().change_scene("res://lose.scn")
-	elif year > 200:
+	elif year > 2100:
 		get_tree().change_scene("res://win.scn")
 
 func _acquireAssets(dict):
