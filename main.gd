@@ -292,6 +292,8 @@ func _on_Solartech1_pressed():
 		get_node("menu_popup/open_research/Research_popup/Solartech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Solartech2").set_opacity(1)
 		get_node("menu_popup/open_research/Research_popup/Solartech3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()
 	print(science['solar'][0])
 
 func _on_Solartech2_pressed():
@@ -302,6 +304,8 @@ func _on_Solartech2_pressed():
 		get_node("menu_popup/open_research/Research_popup/Solartech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Solartech2").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Solartech3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()
 	print(science['solar'][0])
 
 
@@ -313,6 +317,8 @@ func _on_Solartech3_pressed():
 		get_node("menu_popup/open_research/Research_popup/Solartech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Solartech2").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Solartech3").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(science['solar'][0])
 
 
@@ -324,6 +330,8 @@ func _on_Windtech1_pressed():
 		get_node("menu_popup/open_research/Research_popup/Windtech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Windtech2").set_opacity(1)
 		get_node("menu_popup/open_research/Research_popup/Windtech3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(science['wind'][0])
 
 
@@ -335,6 +343,8 @@ func _on_Windtech2_pressed():
 		get_node("menu_popup/open_research/Research_popup/Windtech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Windtech2").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Windtech3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(science['wind'][0])
 
 
@@ -346,7 +356,9 @@ func _on_Windtech3_pressed():
 		get_node("menu_popup/open_research/Research_popup/Windtech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Windtech2").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Windtech3").set_opacity(0.2)
-	print(science['wind'][0])
+	else :
+		get_node("Error_popup").popup()
+		print(science['wind'][0])
 
 
 func _on_Nucleartech1_pressed():
@@ -357,7 +369,9 @@ func _on_Nucleartech1_pressed():
 		get_node("menu_popup/open_research/Research_popup/Nucleartech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Nucleartech2").set_opacity(1)
 		get_node("menu_popup/open_research/Research_popup/Nucleartech3").set_opacity(1)
-	print(science['nuclear'][0])
+	else :
+		get_node("Error_popup").popup()
+		print(science['nuclear'][0])
 
 
 func _on_Nucleartech2_pressed():
@@ -368,7 +382,9 @@ func _on_Nucleartech2_pressed():
 		get_node("menu_popup/open_research/Research_popup/Nucleartech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Nucleartech2").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Nucleartech3").set_opacity(1)
-	print(science['nuclear'][0])
+	else :
+		get_node("Error_popup").popup()
+		print(science['nuclear'][0])
 
 
 func _on_Nucleartech3_pressed():
@@ -379,6 +395,8 @@ func _on_Nucleartech3_pressed():
 		get_node("menu_popup/open_research/Research_popup/Nucleartech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Nucleartech2").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Nucleartech3").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(science['nuclear'][0])
 
 
@@ -390,6 +408,8 @@ func _on_Fossiltech1_pressed():
 		get_node("menu_popup/open_research/Research_popup/Fossiltech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Fossiltech2").set_opacity(1)
 		get_node("menu_popup/open_research/Research_popup/Fossiltech3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(science['fossil'][0])
 
 
@@ -401,6 +421,8 @@ func _on_Fossiltech2_pressed():
 		get_node("menu_popup/open_research/Research_popup/Fossiltech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Fossiltech2").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Fossiltech3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(science['fossil'][0])
 
 
@@ -412,6 +434,8 @@ func _on_Fossiltech3_pressed():
 		get_node("menu_popup/open_research/Research_popup/Fossiltech1").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Fossiltech2").set_opacity(0.2)
 		get_node("menu_popup/open_research/Research_popup/Fossiltech3").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(science['fossil'][0])
 	
 
@@ -431,6 +455,8 @@ func _on_forestry_pressed():
 		_acquireAssets(law['forest'])
 		compute_action()
 		get_node("menu_popup/open_politics/Politics_popup/forestry").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(law['forest'][0])
 		
 func _on_ecars_pressed():
@@ -439,6 +465,8 @@ func _on_ecars_pressed():
 		_acquireAssets(law['ecars'])
 		compute_action()
 		get_node("menu_popup/open_politics/Politics_popup/ecars").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(law['ecars'][0])
 
 func _on_dtax_pressed():
@@ -447,6 +475,8 @@ func _on_dtax_pressed():
 		_acquireAssets(law['dtax'])
 		compute_action()
 		get_node("menu_popup/open_politics/Politics_popup/dtax").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(law['dtax'][0])
 	
 func _on_itax_pressed():
@@ -455,6 +485,8 @@ func _on_itax_pressed():
 		_acquireAssets(law['itax'])
 		compute_action()
 		get_node("menu_popup/open_politics/Politics_popup/itax").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(law['itax'][0])
 	
 # Energy buttons
@@ -476,6 +508,8 @@ func _on_Coal1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['coal'][0])
 
 func _on_Coal2_pressed():
@@ -486,6 +520,8 @@ func _on_Coal2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['coal'][0])
 
 func _on_Coal3_pressed():
@@ -496,6 +532,8 @@ func _on_Coal3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Coal3").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['coal'][0])
 
 func _on_Gas1_pressed():
@@ -506,6 +544,8 @@ func _on_Gas1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['gas'][0])
 
 func _on_Gas2_pressed():
@@ -516,6 +556,8 @@ func _on_Gas2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['gas'][0])
 
 func _on_Gas3_pressed():
@@ -526,6 +568,8 @@ func _on_Gas3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Gas3").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['gas'][0])
 
 func _on_Solar1_pressed():
@@ -536,6 +580,8 @@ func _on_Solar1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['solar'][0])
 
 func _on_Solar2_pressed():
@@ -546,6 +592,8 @@ func _on_Solar2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['solar'][0])
 
 func _on_Solar3_pressed():
@@ -556,6 +604,8 @@ func _on_Solar3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Solar3").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['solar'][0])
 
 func _on_Nuclear1_pressed():
@@ -566,6 +616,8 @@ func _on_Nuclear1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['nuclear'][0])
 
 func _on_Nuclear2_pressed():
@@ -576,6 +628,8 @@ func _on_Nuclear2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['nuclear'][0])
 
 func _on_Nuclear3_pressed():
@@ -586,6 +640,8 @@ func _on_Nuclear3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Nuclear3").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['nuclear'][0])
 
 func _on_Wind1_pressed():
@@ -597,6 +653,8 @@ func _on_Wind1_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['wind'][0])
 
 func _on_Wind2_pressed():
@@ -607,6 +665,8 @@ func _on_Wind2_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(0.2)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(1)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['wind'][0])
 
 func _on_Wind3_pressed():
@@ -617,4 +677,6 @@ func _on_Wind3_pressed():
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind1").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind2").set_opacity(1)
 		get_node("menu_popup/open_facilities/Facilities_popup/Wind3").set_opacity(0.2)
+	else :
+		get_node("Error_popup").popup()	
 	print(energy['wind'][0]) 
