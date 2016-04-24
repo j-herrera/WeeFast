@@ -41,6 +41,9 @@ func _process(delta):
 		if (udp.get_available_packet_count() > 0):
 			turnblock = false
 			get_node("pause_popup").hide()
+			var packet = udp.get_var()
+			if (typeof(packet) == TYPE_STRING):
+				C02_val += float(packet)
 
 func _ready():
 	set_process(true)	
@@ -71,9 +74,9 @@ func compute_action():
 		get_node("action_value").set_text(str(actions))
 		
 func compute_world():
-	var CO2_mod = CO2_mod()
+	#var CO2_mod = CO2_mod()
 	var points_mod = points_mod()
-	CO2_val = CO2_val + CO2_rate + CO2_mod 
+	#CO2_val = CO2_val + CO2_rate + CO2_mod 
 	temp_val += CO2_val * 0.01
 	print("before: ")
 	print(points_val)
@@ -113,7 +116,7 @@ func _on_next_turn_pressed():
 	get_node("action_value").set_text(str(actions))
 	turnblock = true
 	get_node("pause_popup").popup()
-	send_message("Next turn")
+	send_message("mamma" + str(CO2_rate+CO2_mod()) + "mamma")
 
 
 # Research buttons
